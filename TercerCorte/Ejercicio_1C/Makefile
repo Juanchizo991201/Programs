@@ -1,0 +1,15 @@
+# 
+# UNIVERSIDAD SERGIO ARBOLEDA
+# ESCUELA DE CIENCIAS EXACTAS E INGENIERÍA
+# INGENIERÍA DE SISTEMAS Y TELECOMUNICACIONES
+# 
+# AUTHORS: JUAN JOSÉ MONTENEGRO PULIDO
+# EMAILS: juan.montenegro@correo.usa.edu.co
+# 
+# 20/04/2021
+# 
+
+all:
+		gcc -O3 cfib.c main.c -o cfib.x
+clean:
+		rm -r *.x
