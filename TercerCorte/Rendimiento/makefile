@@ -12,4 +12,4 @@
 all:
 		python3 setup.py build_ext --inplace
 clean:
-		rm -rf build *.so *.pyc *.c *.html
+		rm -rf build -rf __pycache__ *.so *.pyc *.c *.html
