@@ -22,7 +22,7 @@ cdef double SCALE = 250 / AU
 
 # class Body(Turtle):
 
-def class Body(object):
+cdef class Body(object):
     """Subclass of Turtle representing a gravitationally-acting body.
 
     Extra attributes:
@@ -32,7 +32,7 @@ def class Body(object):
     """
 
     cdef double vx, vy, px, py, mass
-    cdef double str name    
+    cdef str name    
     
     def __init__(Body self):
         self.name = 'Body'
@@ -74,24 +74,12 @@ def class Body(object):
         f = G * self.mass * other.mass / pow(d,2)
 
         # Compute the direction of the force.
-        theta = math.atan2(dy, dx)
+        theta = atan2(dy, dx)
         fx = cos(theta) * f
         fy = sin(theta) * f
         return fx, fy
 
-""""
-def update_info(step, bodies):
-    """(int, [Body])
-    
-    Displays information about the status of the simulation.
-    """
-    print('Step #{}'.format(step))
-    for body in bodies:
-        s = '{:<8}  Pos.={:>6.2f} {:>6.2f} Vel.={:>10.3f} {:>10.3f}'.format(
-            body.name, body.px/AU, body.py/AU, body.vx, body.vy)
-        print(s)
-    print()
-""""
+
 @cython.cdivision(True)
 def loop(list bodies):
     """([Body])
@@ -110,7 +98,7 @@ def loop(list bodies):
     cdef double fx, fy, total_fx, total_fy
 
     while (step <= 360 * 1000):
-        update_info(step, bodies)
+        # update_info(step, bodies)
         step += 1
 
         force = {}
