@@ -1,8 +1,4 @@
-#!/usr/bin/env python3}
-
 ##cython: language_level=3
-# import math
-# from turtle import *
 
 cimport cython
 
@@ -31,8 +27,8 @@ cdef class Body(object):
     px, py: x, y positions in m
     """
 
-    cdef double vx, vy, px, py, mass
-    cdef str name    
+    cdef public double vx, vy, px, py, mass
+    cdef public str name    
     
     def __init__(Body self):
         self.name = 'Body'
@@ -68,7 +64,7 @@ cdef class Body(object):
         # get a ZeroDivisionError exception further down.
         if d == 0:
             raise ValueError("Collision between objects %r and %r"
-                             % (self.name, other.name))
+                            % (self.name, other.name))
 
         # Compute the force of attraction
         f = G * self.mass * other.mass / pow(d,2)
@@ -89,13 +85,11 @@ def loop(list bodies):
     """
     cdef int timestep = 24*3600  # One day
     
-    #for body in bodies:
-    #    body.penup()
-    #    body.hideturtle()
-
     cdef int step = 1
 
     cdef double fx, fy, total_fx, total_fy
+
+    cdef Body body, other
 
     while (step <= 360 * 1000):
         # update_info(step, bodies)
@@ -124,8 +118,6 @@ def loop(list bodies):
 
             # Update positions
             body.px += body.vx * timestep
-            body.py += body.vy * timestep
-            body.goto(body.px*SCALE, body.py*SCALE)
-            body.dot(3)
+            body.py += body.vy * timestep        
 
 

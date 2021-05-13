@@ -1,7 +1,7 @@
 #!/usr/bin/env python3
 
 import math
-from turtle import *
+
 
 # The gravitational constant G
 G = 6.67428e-11
@@ -10,7 +10,7 @@ G = 6.67428e-11
 AU = (149.6e6 * 1000)     # 149.6 million km, in meters.
 SCALE = 250 / AU
 
-class Body(Turtle):
+class Body():
     """Subclass of Turtle representing a gravitationally-acting body.
 
     Extra attributes:
@@ -76,13 +76,9 @@ def loop(bodies):
     """
     timestep = 24*3600  # One day
     
-    for body in bodies:
-        body.penup()
-        body.hideturtle()
-
     step = 1
-    while True:
-        update_info(step, bodies)
+    while (step <= 365*1000):
+        
         step += 1
 
         force = {}
@@ -109,22 +105,20 @@ def loop(bodies):
             # Update positions
             body.px += body.vx * timestep
             body.py += body.vy * timestep
-            body.goto(body.px*SCALE, body.py*SCALE)
-            body.dot(3)
+            
 
 
 def main():
     sun = Body()
     sun.name = 'Sun'
     sun.mass = 1.98892 * 10**30
-    sun.pencolor('yellow')
+    
 
     earth = Body()
     earth.name = 'Earth'
     earth.mass = 5.9742 * 10**24
     earth.px = -1*AU
     earth.vy = 29.783 * 1000            # 29.783 km/sec
-    earth.pencolor('blue')
 
     # Venus parameters taken from
     # http://nssdc.gsfc.nasa.gov/planetary/factsheet/venusfact.html
@@ -133,7 +127,7 @@ def main():
     venus.mass = 4.8685 * 10**24
     venus.px = 0.723 * AU
     venus.vy = -35.02 * 1000
-    venus.pencolor('red')
+
 
     loop([sun, earth, venus])
 
