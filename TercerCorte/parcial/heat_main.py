@@ -46,8 +46,8 @@ if __name__ == '__main__':
     This in order to stay DRY
     """
     lib_dict = {
-        'heat': heat,
-        # 'cy_heat': cy_heat,
+        # 'heat': heat,
+        'cy_heat': cy_heat,
     }
     bottles_dict = {
         'bottle': 'bottle.dat',
