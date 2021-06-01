@@ -1,0 +1,12 @@
+bottle.dat #0 in 10971169700 ns
+bottle.dat #1 in 11199714900 ns
+bottle.dat #2 in 11294377600 ns
+bottle.dat #3 in 10810460500 ns
+bottle_medium.dat #0 in 81019271100 ns
+bottle_medium.dat #1 in 79100856200 ns
+bottle_medium.dat #2 in 70129544300 ns
+bottle_medium.dat #3 in 67414764000 ns
+bottle_large.dat #0 in 780594487600 ns
+bottle_large.dat #1 in 286693703200 ns
+bottle_large.dat #2 in 292132035600 ns
+bottle_large.dat #3 in 306927376500 ns
